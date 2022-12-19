@@ -1,9 +1,21 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Container } from "../Container";
 import { Button } from "../Button";
 import { Timer } from "../Timer";
 
 import styles from "./Home.module.scss";
+
+enum ClockType {
+  Pomodoro = 25,
+  ShortBreak = 5,
+  LongBreak = 15,
+}
+
+enum ClockColor {
+  Pomodoro = "#BA4949",
+  ShortBreak = "#4D8389",
+  LongBreak = "#476F94",
+}
 
 interface IHome {
   backgroundColor: string;
@@ -20,12 +32,12 @@ const Home = ({ backgroundColor, changeBackgroundColor }: IHome) => {
   const [state, setState] = useState(initialState);
 
   const timeComplete = () => {
-    clearInterval(interval);
+    handleStopTimer();
     console.log("Time is up!");
   };
 
-  const resetTimer = (minutes: number, color: string) => () => {
-    timeComplete();
+  const resetTimer = (minutes: number, color: string) => {
+    handleStopTimer();
     setState({ minutes, seconds: 0 });
     changeBackgroundColor(color);
   };
@@ -47,6 +59,22 @@ const Home = ({ backgroundColor, changeBackgroundColor }: IHome) => {
     interval = setInterval(timerHandler, 1000);
   };
 
+  const handleStopTimer = () => {
+    clearInterval(interval);
+  };
+
+  const handleResetPomodoro = () => {
+    resetTimer(ClockType.Pomodoro, ClockColor.Pomodoro);
+  };
+
+  const handleResetShortBreak = () => {
+    resetTimer(ClockType.ShortBreak, ClockColor.ShortBreak);
+  };
+
+  const handleResetLongBreak = () => {
+    resetTimer(ClockType.LongBreak, ClockColor.LongBreak);
+  };
+
   const minutesString =
     state.minutes < 10 ? `0${state.minutes}` : `${state.minutes}`;
   const secondsString =
@@ -57,14 +85,14 @@ const Home = ({ backgroundColor, changeBackgroundColor }: IHome) => {
       <h1>Welcome to the PomoFocus</h1>
       <Container backgroundColor={"rgba(255,255,255,0.1)"}>
         <div className={styles.buttonContainer}>
-          <Button onClick={resetTimer(25, "#BA4949")}>Pomodoro</Button>
-          <Button onClick={resetTimer(5, "#4D8389")}>Short Break</Button>
-          <Button onClick={resetTimer(45, "#476F94")}>Long Break</Button>
+          <Button onClick={handleResetPomodoro}>Pomodoro</Button>
+          <Button onClick={handleResetShortBreak}>Short Break</Button>
+          <Button onClick={handleResetLongBreak}>Long Break</Button>
         </div>
         <Timer minutes={minutesString} seconds={secondsString} />
         <div className={styles.timerButtons}>
           <Button onClick={handleStartTimer}>Start</Button>
-          <Button onClick={timeComplete}>Stop</Button>
+          <Button onClick={handleStopTimer}>Stop</Button>
         </div>
       </Container>
     </div>
