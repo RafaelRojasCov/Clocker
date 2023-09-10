@@ -1,17 +1,19 @@
-import { useState } from "react";
-import { Button } from "../Button";
+import { IClock } from "../Home/Clock";
 import styles from "./Timer.module.scss";
 
-interface ITimer {
-  minutes: string;
-  seconds: string;
+interface TimerProps {
+  timer?: IClock;
+  pomodoro?: IClock;
+  minutes?: number;
+  seconds?: number;
 }
 
-export const Timer = ({ minutes, seconds }: ITimer) => {
+export const Timer: React.FC<TimerProps> = ({ minutes, seconds }) => {
   return (
     <div className={styles.timer}>
       <span>
-        {minutes}:{seconds}
+        {minutes! < 10 ? `0${minutes}` : minutes!.toString()}:
+        {seconds! < 10 ? `0${seconds}` : seconds!.toString()}
       </span>
     </div>
   );
