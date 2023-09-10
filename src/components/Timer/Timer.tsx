@@ -1,14 +1,11 @@
-import { IClock } from "../Home/Clock";
 import styles from "./Timer.module.scss";
 
 interface TimerProps {
-  timer?: IClock;
-  pomodoro?: IClock;
   minutes?: number;
   seconds?: number;
 }
 
-export const Timer: React.FC<TimerProps> = ({ minutes, seconds }) => {
+export const Timer: React.FC<TimerProps> = ({ minutes = 0, seconds = 0 }) => {
   return (
     <div className={styles.timer}>
       <span>

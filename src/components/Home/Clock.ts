@@ -1,3 +1,5 @@
+import { DispatchWithoutAction } from "react";
+
 type TimerType = "Pomodoro" | "ShortBreak" | "LongBreak";
 
 export interface IClock {
@@ -7,6 +9,7 @@ export interface IClock {
   seconds?: number;
   interval?: NodeJS.Timeout | undefined;
   backgroundColor?: string;
+  forceUpdateCallback?: React.DispatchWithoutAction;
 
   start(): void;
   stop(): void;
@@ -15,39 +18,25 @@ export interface IClock {
   handleTimer(): void;
 }
 
-interface stateProps {
-  timer?: TimerType;
-  minutes?: number;
-  seconds?: number;
-  backgroundColor?: string;
-}
-
 export class Clock implements IClock {
-  timer?: TimerType;
-  defaultMinutes?: number;
-  minutes?: number;
-  seconds?: number;
+  timer?: TimerType = "Pomodoro";
+  defaultMinutes?: number = 25;
+  minutes?: number = 25;
+  seconds?: number = 0;
   interval?: NodeJS.Timeout | undefined;
-  backgroundColor?: string;
+  backgroundColor?: string = "#ff22ff";
+  forceUpdateCallback?: DispatchWithoutAction = () => {};
 
-  constructor(state: stateProps) {
-    const {
-      timer = "Pomodoro",
-      minutes = 25,
-      seconds = 0,
-      backgroundColor = "#BA4949",
-    } = state || {};
-
-    this.timer = timer;
-    this.defaultMinutes = minutes;
-    this.minutes = minutes;
-    this.seconds = seconds;
-    this.backgroundColor = backgroundColor;
+  constructor(params: Partial<Clock>) {
+    Object.assign(this, params);
   }
 
   start = () => {
     if (!this.interval) {
-      this.interval = setInterval(this.handleTimer, 1000);
+      this.interval = setInterval(() => {
+        this.handleTimer();
+        this.forceUpdateCallback!();
+      }, 1000);
       console.log("Timer started!", this.timer);
     }
   };
