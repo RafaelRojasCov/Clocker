@@ -14,7 +14,7 @@ const Home: React.FC = () => {
 
   const handleReset = (timer: IClock) => () => {
     if (currentTimer === timer) return;
-    timer.reset(timer.defaultMinutes as number);
+    timer.reset(timer.defaultMinutes);
     setCurrentTimer(timer);
   };
 

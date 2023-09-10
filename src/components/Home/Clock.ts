@@ -13,7 +13,7 @@ export interface IClock {
 
   start(): void;
   stop(): void;
-  reset(minutes?: number, callback?: () => void): void;
+  reset(minutes?: number): void;
   timeComplete(): void;
   handleTimer(): void;
 }
@@ -49,11 +49,10 @@ export class Clock implements IClock {
     }
   };
 
-  reset = (minutes: number, callback: () => void = () => {}) => {
+  reset = (minutes: number) => {
     this.stop();
     this.minutes = minutes;
     this.seconds = 0;
-    callback();
   };
 
   timeComplete = () => {
