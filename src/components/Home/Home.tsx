@@ -14,6 +14,9 @@ const Home: React.FC = () => {
 
   const handleReset = (timer: IClock) => () => {
     if (currentTimer === timer) return;
+    const confirmation =
+      isRunning && window.confirm("¿Quieres reiniciar el timer?");
+    if (isRunning && !confirmation) return;
     timer.reset(timer.defaultMinutes);
     setCurrentTimer(timer);
   };
