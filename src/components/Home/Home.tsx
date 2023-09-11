@@ -27,13 +27,22 @@ const Home: React.FC = () => {
       <h1>Welcome to Pomodoro</h1>
       <Container backgroundColor={"rgba(255,255,255,0.1)"}>
         <div className={styles.buttonContainer}>
-          <Button active={isRunning} onClick={handleReset(pomodoro)}>
+          <Button
+            active={currentTimer === pomodoro}
+            onClick={handleReset(pomodoro)}
+          >
             Pomodoro
           </Button>
-          <Button active={isRunning} onClick={handleReset(shortBreak)}>
+          <Button
+            active={currentTimer === shortBreak}
+            onClick={handleReset(shortBreak)}
+          >
             Short Break
           </Button>
-          <Button active={isRunning} onClick={handleReset(longBreak)}>
+          <Button
+            active={currentTimer === longBreak}
+            onClick={handleReset(longBreak)}
+          >
             Long Break
           </Button>
         </div>
