@@ -21,8 +21,8 @@ export interface IClock {
 
 export class Clock implements IClock {
   timer?: TimerType = "Pomodoro";
-  defaultMinutes?: number = 25;
-  minutes?: number = 25;
+  defaultMinutes?: number = 30;
+  minutes?: number = 30;
   seconds?: number = 0;
   isRunning?: boolean = false;
   interval?: NodeJS.Timeout | undefined;
@@ -31,6 +31,7 @@ export class Clock implements IClock {
 
   constructor(params: Partial<Clock>) {
     Object.assign(this, params);
+    this.defaultMinutes = this.minutes;
   }
 
   start = () => {
