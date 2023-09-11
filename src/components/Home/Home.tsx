@@ -3,14 +3,14 @@ import { Container } from "../Container";
 import { Button } from "../Button";
 import { Timer } from "../Timer";
 import { pomodoro, shortBreak, longBreak, IClock } from "./Clock";
-
 import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
   const [currentTimer, setCurrentTimer] = useState<IClock>(pomodoro);
-  const { start, stop, backgroundColor, minutes, seconds } = currentTimer;
+  const { start, stop, backgroundColor, minutes, seconds, isRunning } =
+    currentTimer;
 
   const handleReset = (timer: IClock) => () => {
     if (currentTimer === timer) return;
@@ -24,20 +24,29 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.home} style={{ backgroundColor }}>
-      <h1>Welcome to the PomoFocus</h1>
+      <h1>Welcome to Pomodoro</h1>
       <Container backgroundColor={"rgba(255,255,255,0.1)"}>
         <div className={styles.buttonContainer}>
-          <Button onClick={handleReset(pomodoro)}>Pomodoro</Button>
-          <Button onClick={handleReset(shortBreak)}>Short Break</Button>
-          <Button onClick={handleReset(longBreak)}>Long Break</Button>
+          <Button active={isRunning} onClick={handleReset(pomodoro)}>
+            Pomodoro
+          </Button>
+          <Button active={isRunning} onClick={handleReset(shortBreak)}>
+            Short Break
+          </Button>
+          <Button active={isRunning} onClick={handleReset(longBreak)}>
+            Long Break
+          </Button>
         </div>
 
         <Timer minutes={minutes} seconds={seconds} />
 
-        <div className={styles.timerButtons}>
-          <Button onClick={start}>Start</Button>
-          <Button onClick={stop}>Stop</Button>
-        </div>
+        <Button
+          variant="primary"
+          active={isRunning}
+          onClick={isRunning ? stop : start}
+        >
+          {isRunning ? "Pause" : "Start"}
+        </Button>
       </Container>
     </div>
   );

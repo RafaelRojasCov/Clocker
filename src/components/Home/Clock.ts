@@ -7,6 +7,7 @@ export interface IClock {
   defaultMinutes?: number;
   minutes?: number;
   seconds?: number;
+  isRunning?: boolean;
   interval?: NodeJS.Timeout | undefined;
   backgroundColor?: string;
   forceUpdateCallback?: React.DispatchWithoutAction;
@@ -23,6 +24,7 @@ export class Clock implements IClock {
   defaultMinutes?: number = 25;
   minutes?: number = 25;
   seconds?: number = 0;
+  isRunning?: boolean = false;
   interval?: NodeJS.Timeout | undefined;
   backgroundColor?: string = "#ff22ff";
   forceUpdateCallback?: DispatchWithoutAction = () => {};
@@ -33,10 +35,12 @@ export class Clock implements IClock {
 
   start = () => {
     if (!this.interval) {
+      this.isRunning = true;
       this.interval = setInterval(() => {
         this.handleTimer();
         this.forceUpdateCallback!();
       }, 1000);
+      this.forceUpdateCallback!();
       console.log("Timer started!", this.timer);
     }
   };
@@ -45,6 +49,8 @@ export class Clock implements IClock {
     if (this.interval) {
       clearInterval(this.interval);
       this.interval = undefined;
+      this.isRunning = false;
+      this.forceUpdateCallback!();
       console.log("Timer stopped!", this.timer);
     }
   };

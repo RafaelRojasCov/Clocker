@@ -1,13 +1,27 @@
+import classNames from "classnames";
 import styles from "./Button.module.scss";
 
-interface IButton {
+interface ButtonProps {
   children?: React.ReactNode;
   onClick?: () => void;
+  variant?: string;
+  active?: boolean;
 }
 
-export const Button = ({ children = "Button", onClick }: IButton) => {
+export const Button: React.FC<ButtonProps> = ({
+  children = "Button",
+  onClick,
+  variant = "basic",
+  active,
+}) => {
   return (
-    <button onClick={onClick} className={styles.button}>
+    <button
+      onClick={onClick}
+      className={classNames(styles.button, {
+        [styles[`button--${variant}`]]: variant,
+        [styles[`button--${variant}__active`]]: variant && active,
+      })}
+    >
       {children}
     </button>
   );

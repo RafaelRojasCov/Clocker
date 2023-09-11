@@ -1,14 +1,33 @@
 .button {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-weight: 600;
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    color: #fff;
+  transition: all 0.1s ease-in-out;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button--basic {
+  background-color: transparent;
+
+  &__active {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.button--primary {
+  color: #fff;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 6px 0px;
+  margin: 20px 0px 0px;
+  width: 100%;
+  max-width: 200px;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &__active {
+    box-shadow: none;
+    transform: translateY(6px);
   }
 }
