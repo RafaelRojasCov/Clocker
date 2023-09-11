@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/pomofocus-clone/static/css/main.f428f8e7.css",
-    "main.js": "/pomofocus-clone/static/js/main.281f5a3c.js",
+    "main.js": "/pomofocus-clone/static/js/main.734a0c7e.js",
     "static/js/787.18287617.chunk.js": "/pomofocus-clone/static/js/787.18287617.chunk.js",
     "static/media/VarelaRound-Regular.ttf": "/pomofocus-clone/static/media/VarelaRound-Regular.e67ccd4a92677fdf8719.ttf",
     "index.html": "/pomofocus-clone/index.html",
     "main.f428f8e7.css.map": "/pomofocus-clone/static/css/main.f428f8e7.css.map",
-    "main.281f5a3c.js.map": "/pomofocus-clone/static/js/main.281f5a3c.js.map",
+    "main.734a0c7e.js.map": "/pomofocus-clone/static/js/main.734a0c7e.js.map",
     "787.18287617.chunk.js.map": "/pomofocus-clone/static/js/787.18287617.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f428f8e7.css",
-    "static/js/main.281f5a3c.js"
+    "static/js/main.734a0c7e.js"
   ]
 }
