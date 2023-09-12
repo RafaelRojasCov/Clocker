@@ -6,6 +6,7 @@ import { pomodoro, shortBreak, longBreak, IClock } from "./Clock";
 import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
+  // remove this hack when change approach for Clock.tsx
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
   const [currentTimer, setCurrentTimer] = useState<IClock>(pomodoro);
