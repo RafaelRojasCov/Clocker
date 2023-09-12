@@ -6,7 +6,3 @@
 - Typescript
 - React
 - Yarn
-
-## Repository Github Page
-
-https://rafaelrojascov.github.io/pomofocus-clone/
