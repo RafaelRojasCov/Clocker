@@ -42,7 +42,6 @@ $base-selector: ".home";
 #{$base-selector}__button-timers {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
   gap: 0.7em;
 
   @include tablet {
