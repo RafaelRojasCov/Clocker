@@ -5,9 +5,15 @@
 }
 
 @font-face {
-  font-family: "Arial Rounded";
+  font-family: "Arial Rounded Regular";
   src: local("ArialRounded"),
     url(./assets/fonts/ArialRounded/ArialRounded-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Arial Rounded Bold";
+  src: local("ArialRounded"),
+    url(./assets/fonts/ArialRounded/ArialRounded-Bold.ttf) format("truetype");
 }
 
 body {
