@@ -1,13 +1,28 @@
-.timer {
+@import "../../shared/breakpoints.scss";
+
+$base-selector: ".timer";
+
+#{$base-selector} {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 2em;
+  font-family: "Arial Rounded" sans-serif;
+  font-size: 6vw;
 
-  > span {
-    font-size: 120px;
-    font-weight: bold ;
-    margin-bottom: 20px;
+  @include mobile {
+    font-size: 20vw;
+  }
+
+  @include tablet {
+    font-size: 15vw;
+  }
+
+  @include tablet-wide {
+    font-size: 10vw;
+  }
+
+  @include desktop {
+    font-size: 8vw;
   }
 }

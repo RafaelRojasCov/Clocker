@@ -4,6 +4,12 @@
     url(./assets/fonts/VarelaRound/VarelaRound-Regular.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Arial Rounded";
+  src: local("ArialRounded"),
+    url(./assets/fonts/ArialRounded/ArialRounded.ttf) format("truetype");
+}
+
 body {
   font-family: "Varela Round", sans-serif;
 }

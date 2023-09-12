@@ -1,4 +1,8 @@
-.button {
+@import "../../shared/breakpoints.scss";
+
+$base-selector: ".button";
+
+#{$base-selector} {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -6,17 +10,22 @@
   transition: all 0.1s ease-in-out;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
+
+  @include mobile {
+    font-size: 4vw;
+    padding: 0.5em;
+  }
 }
 
-.button--basic {
+#{$base-selector}__basic {
   background-color: transparent;
 
-  &__active {
+  &--active {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
 
-.button--primary {
+#{$base-selector}__primary {
   color: #fff;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 6px 0px;
   margin: 20px 0px 0px;
@@ -26,7 +35,7 @@
   text-transform: uppercase;
   font-weight: bold;
 
-  &__active {
+  &--active {
     box-shadow: none;
     transform: translateY(6px);
   }

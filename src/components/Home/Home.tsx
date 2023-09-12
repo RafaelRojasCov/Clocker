@@ -27,9 +27,9 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.home} style={{ backgroundColor }}>
-      <h1>Welcome to Pomodoro</h1>
+      <h1 className={styles.home__title}>Welcome to Pomodoro</h1>
       <Container backgroundColor={"rgba(255,255,255,0.1)"}>
-        <div className={styles.buttonContainer}>
+        <div className={styles["home__button-timers"]}>
           <Button
             active={currentTimer === pomodoro}
             onClick={handleReset(pomodoro)}

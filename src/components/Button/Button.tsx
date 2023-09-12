@@ -18,8 +18,8 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       className={classNames(styles.button, {
-        [styles[`button--${variant}`]]: variant,
-        [styles[`button--${variant}__active`]]: variant && active,
+        [styles[`button__${variant}`]]: variant,
+        [styles[`button__${variant}--active`]]: variant && active,
       })}
     >
       {children}
