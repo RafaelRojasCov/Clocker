@@ -10,19 +10,19 @@ $base-selector: ".timer";
   font-family: "Arial Rounded" sans-serif;
   font-size: 6vw;
 
-  @include mobile {
-    font-size: 20vw;
-  }
-
-  @include tablet {
-    font-size: 15vw;
+  @include desktop {
+    font-size: 8vw;
   }
 
   @include tablet-wide {
     font-size: 10vw;
   }
 
-  @include desktop {
-    font-size: 8vw;
+  @include tablet {
+    font-size: 15vw;
+  }
+
+  @include mobile {
+    font-size: 20vw;
   }
 }
