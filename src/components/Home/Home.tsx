@@ -2,6 +2,7 @@ import React, { useReducer, useState, useEffect } from "react";
 import { Container } from "../Container";
 import { Button } from "../Button";
 import { Timer } from "../Timer";
+import mouseClick from "../../assets/sounds/mouseClick.mp3";
 import { pomodoro, shortBreak, longBreak, Clock } from "./Clock";
 import styles from "./Home.module.scss";
 
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
   const [currentTimer, setCurrentTimer] = useState<Clock>(pomodoro);
+  const clickSound = new Audio(mouseClick);
   const {
     start,
     stop,
@@ -28,6 +30,11 @@ const Home: React.FC = () => {
     if (isRunning && !confirmation) return;
     timer.reset(timer.defaultMinutes);
     setCurrentTimer(timer);
+  };
+
+  const handleStartStop = () => {
+    clickSound.play();
+    isRunning ? stop() : start();
   };
 
   useEffect(() => {
@@ -66,11 +73,7 @@ const Home: React.FC = () => {
 
         <Timer minutes={minutes} seconds={seconds} />
 
-        <Button
-          variant="primary"
-          active={isRunning}
-          onClick={isRunning ? stop : start}
-        >
+        <Button variant="primary" active={isRunning} onClick={handleStartStop}>
           {isRunning ? "Pause" : "Start"}
         </Button>
       </Container>

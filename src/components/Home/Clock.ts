@@ -1,4 +1,5 @@
 import { DispatchWithoutAction } from "react";
+import alarm from "../../assets/sounds/alarm.wav";
 
 type TimerType = "Pomodoro" | "ShortBreak" | "LongBreak";
 
@@ -13,12 +14,14 @@ export class Clock {
   interval: NodeJS.Timeout | undefined;
   backgroundColor: string = "#ff22ff";
   forceUpdateCallback?: DispatchWithoutAction = () => {};
+  alarmSound: HTMLAudioElement;
 
   constructor(params: Partial<Clock>) {
     Object.assign(this, params);
     this.defaultMinutes = this.minutes;
     this.maxTimeProgress = this.minutes * 60;
     this.currentTimeProgress = 0;
+    this.alarmSound = new Audio(alarm);
   }
 
   start = () => {
@@ -52,6 +55,7 @@ export class Clock {
 
   timeComplete = () => {
     this.stop();
+    this.alarmSound.play();
     console.log("Time is up!");
   };
 
