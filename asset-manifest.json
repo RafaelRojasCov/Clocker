@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/pomofocus-clone/static/css/main.6bbf4829.css",
-    "main.js": "/pomofocus-clone/static/js/main.bb382773.js",
+    "main.css": "/pomofocus-clone/static/css/main.d047ad55.css",
+    "main.js": "/pomofocus-clone/static/js/main.3501d3ad.js",
     "static/js/787.18287617.chunk.js": "/pomofocus-clone/static/js/787.18287617.chunk.js",
     "static/media/VarelaRound-Regular.ttf": "/pomofocus-clone/static/media/VarelaRound-Regular.e67ccd4a92677fdf8719.ttf",
     "static/media/ArialRounded-Regular.ttf": "/pomofocus-clone/static/media/ArialRounded-Regular.b54700609bfa6ca67bda.ttf",
     "static/media/ArialRounded-Bold.ttf": "/pomofocus-clone/static/media/ArialRounded-Bold.78ccc3bbe2236b324bfb.ttf",
     "index.html": "/pomofocus-clone/index.html",
-    "main.6bbf4829.css.map": "/pomofocus-clone/static/css/main.6bbf4829.css.map",
-    "main.bb382773.js.map": "/pomofocus-clone/static/js/main.bb382773.js.map",
+    "main.d047ad55.css.map": "/pomofocus-clone/static/css/main.d047ad55.css.map",
+    "main.3501d3ad.js.map": "/pomofocus-clone/static/js/main.3501d3ad.js.map",
     "787.18287617.chunk.js.map": "/pomofocus-clone/static/js/787.18287617.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6bbf4829.css",
-    "static/js/main.bb382773.js"
+    "static/css/main.d047ad55.css",
+    "static/js/main.3501d3ad.js"
   ]
 }
