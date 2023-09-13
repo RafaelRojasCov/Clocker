@@ -39,3 +39,7 @@ $base-selector: ".button";
     transform: translateY(6px);
   }
 }
+
+#{$base-selector}__icon {
+  padding: 0;
+}

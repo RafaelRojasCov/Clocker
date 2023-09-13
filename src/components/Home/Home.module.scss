@@ -75,3 +75,34 @@ $base-selector: ".home";
     background-color: #fff;
   }
 }
+
+#{$base-selector}__actions {
+  display: grid;
+  grid-template-columns: 200px;
+  gap: 1em;
+
+  &--running {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+#{$base-selector}__button-reset--running {
+  transform: translateY(6px);
+  font-size: 1vw;
+
+  @include desktop {
+    font-size: 1.2vw;
+  }
+
+  @include tablet-wide {
+    font-size: 1.5vw;
+  }
+
+  @include tablet {
+    font-size: 2.5vw;
+  }
+
+  @include mobile {
+    font-size: 3.5vw;
+  }
+}
