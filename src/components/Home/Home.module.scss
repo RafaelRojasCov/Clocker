@@ -66,7 +66,12 @@ $base-selector: ".home";
     background-color: #fff;
   }
 
+  // for chromium based browsers
   &::-webkit-progress-bar {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-progress-value {
     background-color: #fff;
   }
 }
