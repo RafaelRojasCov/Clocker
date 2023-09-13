@@ -75,11 +75,7 @@ const Home: React.FC = () => {
 
         <Timer minutes={minutes} seconds={seconds} />
 
-        <div
-          className={classNames(styles["home__actions"], {
-            [styles["home__actions--running"]]: isRunning,
-          })}
-        >
+        <div className={styles["home__actions"]}>
           <Button
             variant="primary"
             active={isRunning}
@@ -87,17 +83,14 @@ const Home: React.FC = () => {
           >
             {isRunning ? "Pause" : "Start"}
           </Button>
-          {isRunning && (
-            <>
-              <Button
-                className={classNames({
-                  [styles[`home__button-reset--running`]]: isRunning,
-                })}
-                icon={faRotateLeft}
-                onClick={handleReset(currentTimer, { forceReset: true })}
-              />
-            </>
-          )}
+
+          <Button
+            className={classNames(styles[`home__button-reset`], {
+              [styles[`home__button-reset--running`]]: isRunning,
+            })}
+            icon={faRotateLeft}
+            onClick={handleReset(currentTimer, { forceReset: true })}
+          />
         </div>
       </Container>
     </div>

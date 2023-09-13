@@ -77,18 +77,20 @@ $base-selector: ".home";
 }
 
 #{$base-selector}__actions {
-  display: grid;
-  grid-template-columns: 200px;
+  display: flex;
   gap: 1em;
+  justify-content: center;
+  padding-left: 3em;
 
-  &--running {
-    grid-template-columns: 200px 1fr;
+  @include mobile {
+    padding-left: 2em;
   }
 }
 
-#{$base-selector}__button-reset--running {
+#{$base-selector}__button-reset {
   transform: translateY(6px);
   font-size: 1vw;
+  visibility: hidden;
 
   @include desktop {
     font-size: 1.2vw;
@@ -104,5 +106,9 @@ $base-selector: ".home";
 
   @include mobile {
     font-size: 3.5vw;
+  }
+
+  &--running {
+    visibility: visible;
   }
 }
