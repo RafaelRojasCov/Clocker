@@ -2,36 +2,23 @@ import { DispatchWithoutAction } from "react";
 
 type TimerType = "Pomodoro" | "ShortBreak" | "LongBreak";
 
-export interface IClock {
-  timer?: TimerType;
-  defaultMinutes?: number;
-  minutes?: number;
-  seconds?: number;
-  isRunning?: boolean;
-  interval?: NodeJS.Timeout | undefined;
-  backgroundColor?: string;
-  forceUpdateCallback?: React.DispatchWithoutAction;
-
-  start(): void;
-  stop(): void;
-  reset(minutes?: number): void;
-  timeComplete(): void;
-  handleTimer(): void;
-}
-
-export class Clock implements IClock {
-  timer?: TimerType = "Pomodoro";
-  defaultMinutes?: number = 30;
-  minutes?: number = 30;
-  seconds?: number = 0;
-  isRunning?: boolean = false;
-  interval?: NodeJS.Timeout | undefined;
-  backgroundColor?: string = "#ff22ff";
+export class Clock {
+  timer: TimerType = "Pomodoro";
+  defaultMinutes: number = 30;
+  minutes: number = 30;
+  seconds: number = 0;
+  currentTimeProgress: number = 0;
+  maxTimeProgress: number = 0;
+  isRunning: boolean = false;
+  interval: NodeJS.Timeout | undefined;
+  backgroundColor: string = "#ff22ff";
   forceUpdateCallback?: DispatchWithoutAction = () => {};
 
   constructor(params: Partial<Clock>) {
     Object.assign(this, params);
     this.defaultMinutes = this.minutes;
+    this.maxTimeProgress = this.minutes * 60;
+    this.currentTimeProgress = 0;
   }
 
   start = () => {
@@ -70,12 +57,15 @@ export class Clock implements IClock {
   handleTimer = () => {
     if (this.minutes === 0 && this.seconds === 0) {
       this.timeComplete();
-    } else if (this.minutes! > 0 && this.seconds === 0) {
-      this.minutes! -= 1;
+    } else if (this.minutes > 0 && this.seconds === 0) {
+      this.minutes -= 1;
       this.seconds = 59;
     } else {
-      this.seconds! -= 1;
+      this.seconds -= 1;
     }
+
+    this.currentTimeProgress =
+      this.maxTimeProgress - (this.minutes * 60 + this.seconds);
   };
 }
 

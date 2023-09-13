@@ -2,18 +2,26 @@ import React, { useReducer, useState, useEffect } from "react";
 import { Container } from "../Container";
 import { Button } from "../Button";
 import { Timer } from "../Timer";
-import { pomodoro, shortBreak, longBreak, IClock } from "./Clock";
+import { pomodoro, shortBreak, longBreak, Clock } from "./Clock";
 import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
   // remove this hack when change approach for Clock.tsx
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
-  const [currentTimer, setCurrentTimer] = useState<IClock>(pomodoro);
-  const { start, stop, backgroundColor, minutes, seconds, isRunning } =
-    currentTimer;
+  const [currentTimer, setCurrentTimer] = useState<Clock>(pomodoro);
+  const {
+    start,
+    stop,
+    backgroundColor,
+    minutes,
+    seconds,
+    maxTimeProgress,
+    currentTimeProgress,
+    isRunning,
+  } = currentTimer;
 
-  const handleReset = (timer: IClock) => () => {
+  const handleReset = (timer: Clock) => () => {
     if (currentTimer === timer) return;
     const confirmation =
       isRunning && window.confirm("¿Quieres reiniciar el timer?");
@@ -29,6 +37,11 @@ const Home: React.FC = () => {
   return (
     <div className={styles.home} style={{ backgroundColor }}>
       <h1 className={styles.home__title}>Welcome to Pomodoro</h1>
+      <progress
+        className={styles["home__progress-bar"]}
+        max={maxTimeProgress}
+        value={currentTimeProgress}
+      />
       <Container backgroundColor={"rgba(255,255,255,0.1)"}>
         <div className={styles["home__button-timers"]}>
           <Button

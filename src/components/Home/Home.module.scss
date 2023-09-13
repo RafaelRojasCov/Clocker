@@ -52,3 +52,21 @@ $base-selector: ".home";
     gap: 0.3em;
   }
 }
+
+#{$base-selector}__progress-bar {
+  border: none;
+  width: 100%;
+  max-width: 600px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+  margin: 0 1em;
+
+  &::-moz-progress-bar {
+    background-color: #fff;
+  }
+
+  &::-webkit-progress-bar {
+    background-color: #fff;
+  }
+}
