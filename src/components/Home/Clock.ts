@@ -47,6 +47,7 @@ export class Clock {
     this.stop();
     this.minutes = minutes;
     this.seconds = 0;
+    this.currentTimeProgress = 0;
   };
 
   timeComplete = () => {
