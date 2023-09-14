@@ -77,20 +77,29 @@ $base-selector: ".home";
 }
 
 #{$base-selector}__actions {
-  display: flex;
-  gap: 1em;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
   justify-content: center;
-  padding-left: 3em;
+  align-items: center;
+  gap: 10px;
 
   @include mobile {
-    padding-left: 2em;
+    gap: 5px;
+  }
+
+  > button:first-child {
+    grid-column: 2/3;
+
+    @include mobile {
+      width: 50vw;
+      font-size: 5vw;
+    }
   }
 }
 
 #{$base-selector}__button-reset {
   transform: translateY(6px);
   font-size: 1vw;
-  visibility: hidden;
 
   @include desktop {
     font-size: 1.2vw;
@@ -106,9 +115,5 @@ $base-selector: ".home";
 
   @include mobile {
     font-size: 3.5vw;
-  }
-
-  &--running {
-    visibility: visible;
   }
 }

@@ -83,14 +83,15 @@ const Home: React.FC = () => {
           >
             {isRunning ? "Pause" : "Start"}
           </Button>
-
-          <Button
-            className={classNames(styles[`home__button-reset`], {
-              [styles[`home__button-reset--running`]]: isRunning,
-            })}
-            icon={faRotateLeft}
-            onClick={handleReset(currentTimer, { forceReset: true })}
-          />
+          {isRunning && (
+            <>
+              <Button
+                className={styles[`home__button-reset`]}
+                icon={faRotateLeft}
+                onClick={handleReset(currentTimer, { forceReset: true })}
+              />
+            </>
+          )}
         </div>
       </Container>
     </div>
