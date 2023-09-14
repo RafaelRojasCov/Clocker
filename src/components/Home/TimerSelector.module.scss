@@ -1,0 +1,17 @@
+@import "../../shared/breakpoints.scss";
+
+$base-selector: ".timer-selector";
+
+#{$base-selector} {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7em;
+
+  @include tablet {
+    gap: 0.5em;
+  }
+
+  @include mobile {
+    gap: 0.3em;
+  }
+}

@@ -1,12 +1,13 @@
 import React, { useReducer, useState, useEffect } from "react";
 import { Container } from "../Container";
-import { Button } from "../Button";
 import { Timer } from "../Timer";
-import mouseClick from "../../assets/sounds/mouseClick.mp3";
 import { pomodoro, shortBreak, longBreak, Clock } from "./Clock";
-import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import { TimerSelector } from "./TimerSelector";
+
+import mouseClick from "../../assets/sounds/mouseClick.mp3";
 
 import styles from "./Home.module.scss";
+import { TimerActions } from "./TimerActions";
 
 const Home: React.FC = () => {
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
@@ -23,15 +24,13 @@ const Home: React.FC = () => {
     isRunning,
   } = currentTimer;
 
-  const handleReset =
-    (timer: Clock, options?: { forceReset?: boolean }) => () => {
-      if (currentTimer === timer && !options?.forceReset) return;
-      const confirmation =
-        isRunning && window.confirm("¿Quieres reiniciar el timer?");
-      if (isRunning && !confirmation) return;
-      timer.reset(timer.defaultMinutes);
-      setCurrentTimer(timer);
-    };
+  const handleReset = (timer: Clock, options?: { forceReset?: boolean }) => {
+    if (currentTimer === timer && !options?.forceReset) return;
+    const question = "¿Quieres reiniciar el timer?";
+    if (isRunning && !window.confirm(question)) return;
+    timer.reset(timer.defaultMinutes);
+    setCurrentTimer(timer);
+  };
 
   const handleStartStop = () => {
     clickSound.play();
@@ -45,53 +44,28 @@ const Home: React.FC = () => {
   return (
     <div className={styles.home} style={{ backgroundColor }}>
       <h1 className={styles.home__title}>Welcome to Pomodoro</h1>
+
       <progress
         className={styles["home__progress-bar"]}
         max={maxTimeProgress}
         value={currentTimeProgress}
       />
+
       <Container backgroundColor={"rgba(255,255,255,0.1)"}>
-        <div className={styles["home__button-timers"]}>
-          <Button
-            active={currentTimer === pomodoro}
-            onClick={handleReset(pomodoro)}
-          >
-            Pomodoro
-          </Button>
-          <Button
-            active={currentTimer === shortBreak}
-            onClick={handleReset(shortBreak)}
-          >
-            Short Break
-          </Button>
-          <Button
-            active={currentTimer === longBreak}
-            onClick={handleReset(longBreak)}
-          >
-            Long Break
-          </Button>
-        </div>
+        <TimerSelector
+          timers={[pomodoro, shortBreak, longBreak]}
+          handleReset={handleReset}
+          currentTimer={currentTimer}
+        />
 
         <Timer minutes={minutes} seconds={seconds} />
 
-        <div className={styles["home__actions"]}>
-          <Button
-            variant="primary"
-            active={isRunning}
-            onClick={handleStartStop}
-          >
-            {isRunning ? "Pause" : "Start"}
-          </Button>
-          {isRunning && (
-            <>
-              <Button
-                className={styles[`home__button-reset`]}
-                icon={faRotateLeft}
-                onClick={handleReset(currentTimer, { forceReset: true })}
-              />
-            </>
-          )}
-        </div>
+        <TimerActions
+          currentTimer={currentTimer}
+          handleReset={handleReset}
+          handleStartStop={handleStartStop}
+          isRunning={isRunning}
+        />
       </Container>
     </div>
   );

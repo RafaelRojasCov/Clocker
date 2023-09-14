@@ -1,10 +1,10 @@
 import { DispatchWithoutAction } from "react";
 import alarm from "../../assets/sounds/alarm.wav";
 
-type TimerType = "Pomodoro" | "ShortBreak" | "LongBreak";
+type TimerName = "Pomodoro" | "ShortBreak" | "LongBreak";
 
 export class Clock {
-  timer: TimerType = "Pomodoro";
+  name: TimerName = "Pomodoro";
   defaultMinutes: number = 30;
   minutes: number = 30;
   seconds: number = 0;
@@ -32,7 +32,7 @@ export class Clock {
         this.forceUpdateCallback!();
       }, 1000);
       this.forceUpdateCallback!();
-      console.log("Timer started!", this.timer);
+      console.log("Timer started!", this.name);
     }
   };
 
@@ -42,7 +42,7 @@ export class Clock {
       this.interval = undefined;
       this.isRunning = false;
       this.forceUpdateCallback!();
-      console.log("Timer stopped!", this.timer);
+      console.log("Timer stopped!", this.name);
     }
   };
 
@@ -75,19 +75,19 @@ export class Clock {
 }
 
 export const pomodoro = new Clock({
-  timer: "Pomodoro",
+  name: "Pomodoro",
   minutes: 25,
   backgroundColor: "#BA4949",
 });
 
 export const shortBreak = new Clock({
-  timer: "ShortBreak",
+  name: "ShortBreak",
   minutes: 5,
   backgroundColor: "#4D8389",
 });
 
 export const longBreak = new Clock({
-  timer: "LongBreak",
+  name: "LongBreak",
   minutes: 15,
   backgroundColor: "#476F94",
 });

@@ -1,0 +1,45 @@
+@import "../../shared/breakpoints.scss";
+
+$base-selector: ".timer-actions";
+
+#{$base-selector} {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @include mobile {
+    gap: 5px;
+  }
+
+  > button:first-child {
+    grid-column: 2/3;
+
+    @include mobile {
+      width: 50vw;
+      font-size: 5vw;
+    }
+  }
+}
+
+#{$base-selector}__button-reset {
+  transform: translateY(6px);
+  font-size: 1vw;
+
+  @include desktop {
+    font-size: 1.2vw;
+  }
+
+  @include tablet-wide {
+    font-size: 1.5vw;
+  }
+
+  @include tablet {
+    font-size: 2.5vw;
+  }
+
+  @include mobile {
+    font-size: 3.5vw;
+  }
+}
