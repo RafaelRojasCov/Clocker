@@ -42,7 +42,7 @@ export const TimerActions: React.FC<TimerActionsProps> = ({
         <>
           <Button
             className={styles["timer-actions__button-reset"]}
-            icon={faRotateLeft}
+            startIcon={faRotateLeft}
             onClick={onClick(currentTimer, { forceReset: true })}
           />
         </>
