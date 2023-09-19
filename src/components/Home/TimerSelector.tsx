@@ -11,6 +11,14 @@ interface TimerSelectorProps {
   handleReset: (timer: Clock, options?: { forceReset?: boolean }) => void;
 }
 
+/**
+ * TimerSelector Component
+ * @param timers - Array of timers
+ * @param currentTimer - Current timer
+ * @param className - CSS Class
+ * @param handleReset - Function to reset the timer
+ * @returns React.FunctionalComponent<TimerSelectorProps>
+ */
 export const TimerSelector: React.FC<TimerSelectorProps> = ({
   timers,
   currentTimer,
@@ -22,7 +30,11 @@ export const TimerSelector: React.FC<TimerSelectorProps> = ({
   return (
     <div className={classNames(styles["timer-selector"], className)}>
       {timers.map((timer: Clock) => (
-        <Button active={currentTimer === timer} onClick={onClick(timer)}>
+        <Button
+          key={timer.name}
+          active={currentTimer === timer}
+          onClick={onClick(timer)}
+        >
           {timer.name}
         </Button>
       ))}

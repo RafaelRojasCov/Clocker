@@ -5,6 +5,9 @@
   "type": "module",
   "homepage": "https://RafaelRojasCov.github.io/pomofocus-clone",
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",

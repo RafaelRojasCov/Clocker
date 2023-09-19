@@ -5,6 +5,12 @@ interface TimerProps {
   seconds?: number;
 }
 
+/**
+ * Timer Component
+ * @param minutes - Number of minutes
+ * @param seconds - Number of seconds
+ * @returns React.FunctionalComponent<TimerProps>
+ */
 export const Timer: React.FC<TimerProps> = ({ minutes = 0, seconds = 0 }) => {
   return (
     <div className={styles.timer}>
