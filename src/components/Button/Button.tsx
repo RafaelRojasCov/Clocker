@@ -12,6 +12,16 @@ interface ButtonProps {
   className?: string;
 }
 
+/**
+ * Button Component
+ * @param children - React.ReactNode
+ * @param onClick - Function to handle the click event
+ * @param variant - CSS Class
+ * @param active - Boolean to know if the button is active
+ * @param icon - Icon to show
+ * @param className - CSS Class
+ * @returns React.FunctionalComponent<ButtonProps>
+ */
 export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,

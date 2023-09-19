@@ -9,6 +9,10 @@ import mouseClick from "../../assets/sounds/mouseClick.mp3";
 import styles from "./Home.module.scss";
 import { TimerActions } from "./TimerActions";
 
+/**
+ * Home Component
+ * @returns React.FunctionalComponent
+ */
 const Home: React.FC = () => {
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const [currentTimer, setCurrentTimer] = useState<Clock>(pomodoro);
@@ -51,7 +55,7 @@ const Home: React.FC = () => {
         value={currentTimeProgress}
       />
 
-      <Container backgroundColor={"rgba(255,255,255,0.1)"}>
+      <Container maxW={"500px"} pd="2em 1em" bgColor="rgba(255,255,255,0.1)">
         <TimerSelector
           timers={[pomodoro, shortBreak, longBreak]}
           handleReset={handleReset}

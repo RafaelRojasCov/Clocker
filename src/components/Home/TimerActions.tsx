@@ -16,6 +16,14 @@ interface TimerActionsProps {
   currentTimer: Clock;
 }
 
+/**
+ * TimerActions Component
+ * @param handleReset - Function to reset the timer
+ * @param handleStartStop - Function to start or stop the timer
+ * @param isRunning - Boolean to know if the timer is running
+ * @param currentTimer - Current timer
+ * @returns React.FunctionalComponent<TimerActionsProps>
+ */
 export const TimerActions: React.FC<TimerActionsProps> = ({
   handleReset,
   handleStartStop,
