@@ -1,14 +1,16 @@
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Button.module.scss";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core";
 
 interface ButtonProps {
   children?: React.ReactNode;
   onClick?: () => void;
   variant?: string;
   active?: boolean;
-  icon?: IconProp;
+  startIcon?: IconProp;
+  endIcon?: IconProp;
+  iconSize?: SizeProp;
   className?: string;
 }
 
@@ -18,7 +20,9 @@ interface ButtonProps {
  * @param onClick - Function to handle the click event
  * @param variant - CSS Class
  * @param active - Boolean to know if the button is active
- * @param icon - Icon to show
+ * @param endIcon - Icon to show at the end of the button
+ * @param startIcon - Icon to show at the start of the button
+ * @param iconSize - Icon size
  * @param className - CSS Class
  * @returns React.FunctionalComponent<ButtonProps>
  */
@@ -27,7 +31,9 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   variant = "basic",
   active,
-  icon,
+  startIcon,
+  endIcon,
+  iconSize = "2xl",
   className,
 }) => {
   return (
@@ -38,13 +44,16 @@ export const Button: React.FC<ButtonProps> = ({
         {
           [styles[`button__${variant}`]]: variant,
           [styles[`button__${variant}--active`]]: variant && active,
-          [styles[`button__icon`]]: icon,
+          [styles[`button__icon`]]: endIcon || startIcon,
+          [styles[`button__icon--start`]]: startIcon,
+          [styles[`button__icon--end`]]: endIcon,
         },
         className
       )}
     >
+      {startIcon && <FontAwesomeIcon icon={startIcon} size={iconSize} />}
       {children}
-      {icon && <FontAwesomeIcon icon={icon} size="2xl" />}
+      {endIcon && <FontAwesomeIcon icon={endIcon} size={iconSize} />}
     </button>
   );
 };
