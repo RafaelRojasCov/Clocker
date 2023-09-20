@@ -9,6 +9,10 @@ $base-selector: ".button";
   cursor: pointer;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 
   @include mobile {
     font-size: 4vw;
@@ -18,9 +22,11 @@ $base-selector: ".button";
 
 #{$base-selector}__basic {
   background-color: transparent;
+  font-weight: normal;
 
   &--active {
     background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
   }
 }
 
@@ -29,7 +35,6 @@ $base-selector: ".button";
   width: 200px;
   font-size: 22px;
   text-transform: uppercase;
-  font-weight: bold;
   transition: transform 0.1s ease-in-out;
 
   &--active {
@@ -43,10 +48,6 @@ $base-selector: ".button";
   background-color: rgba(0, 0, 0, 0.1);
   height: 4em;
   width: 100%;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.5em;
   opacity: 0.7;
   border-radius: 0.5em;
@@ -58,4 +59,19 @@ $base-selector: ".button";
 
 #{$base-selector}__icon {
   padding: 0;
+}
+
+#{$base-selector}__text-only {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  height: 40px;
+  width: fit-content;
+  padding: 0 1em;
+}
+
+#{$base-selector}__solid {
+  height: 40px;
+  width: fit-content;
+  padding: 0 2em;
+  background-color: #222222;
 }
