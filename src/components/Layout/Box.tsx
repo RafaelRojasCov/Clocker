@@ -3,7 +3,7 @@ import { StyledContainer, StyledContainerCssProps } from "./StyledContainer";
 import styles from "./Box.module.scss";
 import classNames from "classnames";
 
-interface BoxProps extends StyledContainerCssProps {
+export interface BoxProps extends StyledContainerCssProps {
   children?: React.ReactNode;
   className?: string;
 }

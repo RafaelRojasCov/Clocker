@@ -2,7 +2,7 @@ import classNames from "classnames";
 import type { ComponentPropsWithoutRef } from "react";
 import styles from "./Input.module.scss";
 
-interface InputProps extends ComponentPropsWithoutRef<"input"> {
+export interface InputProps extends ComponentPropsWithoutRef<"input"> {
   value?: HTMLInputElement["value"];
   type?: HTMLInputElement["type"];
   className?: HTMLInputElement["className"];

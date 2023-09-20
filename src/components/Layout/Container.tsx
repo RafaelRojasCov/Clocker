@@ -2,7 +2,7 @@ import React from "react";
 import { StyledContainer, StyledContainerCssProps } from "./StyledContainer";
 import styles from "./Container.module.scss";
 
-interface ContainerProps extends StyledContainerCssProps {
+export interface ContainerProps extends StyledContainerCssProps {
   children?: React.ReactNode;
 }
 
@@ -30,5 +30,3 @@ export const Container: React.FC<ContainerProps> = ({ children, ...css }) => {
     </StyledContainer>
   );
 };
-
-

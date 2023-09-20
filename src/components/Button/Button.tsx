@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Button.module.scss";
 import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core";
 
-interface ButtonProps {
+export interface ButtonProps {
   children?: React.ReactNode;
   onClick?: () => void;
   variant?: string;

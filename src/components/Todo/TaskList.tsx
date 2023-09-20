@@ -2,7 +2,7 @@ import { Box } from "../Layout";
 import classNames from "classnames";
 import styles from "./TaskList.module.scss";
 
-interface TaskListProps {
+export interface TaskListProps {
   taskList: string[];
 }
 
