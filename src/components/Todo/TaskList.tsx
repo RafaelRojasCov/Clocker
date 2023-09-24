@@ -1,5 +1,6 @@
-import { Box } from "../Layout";
 import classNames from "classnames";
+import { Box } from "../Layout";
+import { Task } from "./Task";
 import styles from "./TaskList.module.scss";
 
 export interface TaskListProps {
@@ -11,9 +12,9 @@ export const TaskList: React.FC<TaskListProps> = ({ taskList = [] }) => {
     <>
       {!!taskList.length && (
         <Box className={classNames(styles["task-list"])}>
-          <ul>
+          <ul className={styles["task-list__ul"]}>
             {taskList.map((task, i) => (
-              <li key={i}>{task}</li>
+              <Task key={i} component="li" title={task} />
             ))}
           </ul>
         </Box>

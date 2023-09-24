@@ -1,9 +1,11 @@
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./Button.module.scss";
 import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core";
+import { StyledButton, StyledButtonProps } from "./StyledButton";
+import { cleanProps } from "../../shared";
+import styles from "./Button.module.scss";
 
-export interface ButtonProps {
+export interface ButtonProps extends StyledButtonProps {
   children?: React.ReactNode;
   onClick?: () => void;
   variant?: string;
@@ -29,15 +31,33 @@ export interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
-  variant = "basic",
+  variant,
   active,
   startIcon,
   endIcon,
   iconSize = "2xl",
   className,
+  color,
+  mg,
+  pd,
+  br,
+  bgColor,
+  placeContent,
+  ...rest
 }) => {
+  const styledProps = cleanProps({
+    color,
+    mg,
+    pd,
+    br,
+    bgColor,
+    placeContent,
+  });
+
   return (
-    <button
+    <StyledButton
+      {...styledProps}
+      {...rest}
       onClick={onClick}
       className={classNames(
         styles.button,
@@ -54,6 +74,6 @@ export const Button: React.FC<ButtonProps> = ({
       {startIcon && <FontAwesomeIcon icon={startIcon} size={iconSize} />}
       {children}
       {endIcon && <FontAwesomeIcon icon={endIcon} size={iconSize} />}
-    </button>
+    </StyledButton>
   );
 };
