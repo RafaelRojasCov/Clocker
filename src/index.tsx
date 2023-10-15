@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Home } from "./components/Home";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "./shared";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
@@ -10,7 +12,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Home />
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

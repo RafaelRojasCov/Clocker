@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core";
-import { StyledButton, StyledButtonProps } from "./StyledButton";
-import { cleanProps } from "../../shared";
+import { CompoundButton, StyledButtonProps } from "./StyledButton";
+import { cleanProps } from "@shared/index";
 import styles from "./Button.module.scss";
 
 export interface ButtonProps extends StyledButtonProps {
@@ -55,7 +55,7 @@ export const Button: React.FC<ButtonProps> = ({
   });
 
   return (
-    <StyledButton
+    <CompoundButton
       {...styledProps}
       {...rest}
       onClick={onClick}
@@ -74,6 +74,6 @@ export const Button: React.FC<ButtonProps> = ({
       {startIcon && <FontAwesomeIcon icon={startIcon} size={iconSize} />}
       {children}
       {endIcon && <FontAwesomeIcon icon={endIcon} size={iconSize} />}
-    </StyledButton>
+    </CompoundButton>
   );
 };
