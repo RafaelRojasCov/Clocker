@@ -1,0 +1,20 @@
+$base-selector: ".task";
+
+#{$base-selector} {
+  width: 100%;
+  color: #555555;
+}
+
+#{$base-selector}__header {
+  display: flex;
+  place-content: center space-between;
+  flex-flow: row;
+  background-color: #fff;
+  gap: 0.5em;
+  width: 100%;
+  border-radius: 5px;
+  border-left: 5px solid #000;
+  height: 60px;
+  margin: 0;
+  padding: 0 1em;
+}

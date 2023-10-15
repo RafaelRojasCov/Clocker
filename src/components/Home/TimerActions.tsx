@@ -4,12 +4,12 @@ import { Button } from "../Button";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./TimerActions.module.scss";
 
-type OnClickProps = (
+export type OnClickProps = (
   timer: Clock,
   options?: { forceReset?: boolean }
 ) => () => void;
 
-interface TimerActionsProps {
+export interface TimerActionsProps {
   handleReset: (timer: Clock, options?: { forceReset?: boolean }) => void;
   handleStartStop: () => void;
   isRunning: boolean;
@@ -42,7 +42,7 @@ export const TimerActions: React.FC<TimerActionsProps> = ({
         <>
           <Button
             className={styles["timer-actions__button-reset"]}
-            icon={faRotateLeft}
+            startIcon={faRotateLeft}
             onClick={onClick(currentTimer, { forceReset: true })}
           />
         </>

@@ -1,6 +1,6 @@
 import styles from "./Timer.module.scss";
 
-interface TimerProps {
+export interface TimerProps {
   minutes?: number;
   seconds?: number;
 }

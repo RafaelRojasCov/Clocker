@@ -1,8 +1,9 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { Container } from "../Container";
+import { Container } from "../Layout";
 import { Timer } from "../Timer";
 import { pomodoro, shortBreak, longBreak, Clock } from "./Clock";
 import { TimerSelector } from "./TimerSelector";
+import { Todo } from "../Todo";
 
 import mouseClick from "../../assets/sounds/mouseClick.mp3";
 
@@ -71,6 +72,7 @@ const Home: React.FC = () => {
           isRunning={isRunning}
         />
       </Container>
+      <Todo />
     </div>
   );
 };

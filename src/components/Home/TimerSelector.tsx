@@ -4,7 +4,7 @@ import { Clock } from "./Clock";
 import styles from "./TimerSelector.module.scss";
 import classNames from "classnames";
 
-interface TimerSelectorProps {
+export interface TimerSelectorProps {
   timers: Clock[];
   currentTimer: Clock;
   className?: string;
