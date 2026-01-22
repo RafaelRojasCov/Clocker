@@ -96,17 +96,17 @@ export const TextOnlyButton = styled(StyledButton)<StyledButtonProps>`
   ${({ theme: { button: { textOnly = {} } = {} } }) => `
     backgroundColor: ${textOnly.bgColor || Colors.TransparentWhite[900]};
     color: ${textOnly.color || Colors.Grey[50]};
-    h: ${textOnly.h || "40px"};
-    w: ${textOnly.w || "100%"};
+    height: ${textOnly.h || "40px"};
+    width: ${textOnly.w || "100%"};
     padding: ${textOnly.pd || Padding.All.zero};
   `};
 `;
 
 export const SolidButton = styled(StyledButton)<StyledButtonProps>`
   ${({ theme: { button: { solid = {} } = {} } }) => `
-    h: ${solid.h || "40px"};
-    w: ${solid.w || "100%"};
-    pd: ${solid.pd || Padding.All.zero};
+    height: ${solid.h || "40px"};
+    width: ${solid.w || "100%"};
+    padding: ${solid.pd || Padding.All.zero};
     bgColor: ${solid.bgColor || Colors.TransparentWhite[900]};
   `};
 `;
