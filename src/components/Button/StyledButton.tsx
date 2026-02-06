@@ -94,7 +94,7 @@ export const IconButton = styled(StyledButton)<StyledButtonProps>`
 
 export const TextOnlyButton = styled(StyledButton)<StyledButtonProps>`
   ${({ theme: { button: { textOnly = {} } = {} } }) => `
-    backgroundColor: ${textOnly.bgColor || Colors.TransparentWhite[900]};
+    background-color: ${textOnly.bgColor || Colors.TransparentWhite[900]};
     color: ${textOnly.color || Colors.Grey[50]};
     height: ${textOnly.h || "40px"};
     width: ${textOnly.w || "100%"};
@@ -107,7 +107,7 @@ export const SolidButton = styled(StyledButton)<StyledButtonProps>`
     height: ${solid.h || "40px"};
     width: ${solid.w || "100%"};
     padding: ${solid.pd || Padding.All.zero};
-    bgColor: ${solid.bgColor || Colors.TransparentWhite[900]};
+    background-color: ${solid.bgColor || Colors.TransparentWhite[900]};
   `};
 `;
 

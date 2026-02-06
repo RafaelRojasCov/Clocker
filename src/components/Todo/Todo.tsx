@@ -19,7 +19,11 @@ export const Todo = () => {
   };
 
   const addTask = () => {
-    setTaskList([...taskList, task]);
+    const trimmedTask = task.trim();
+    if (trimmedTask === "") {
+      return;
+    }
+    setTaskList([...taskList, trimmedTask]);
     setTask("");
   };
 
