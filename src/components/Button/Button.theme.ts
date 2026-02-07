@@ -73,8 +73,8 @@ export interface ThemeButtonProps {
 }
 
 export const button = {
-  color: Colors.Grey[50],
-  bgColor: Colors.TransparentWhite[100],
+  color: Colors.TransparentWhite[50],
+  bgColor: Colors.TransparentWhite[800],
   br: Borders.Radius["sm"],
   mg: Margin.All["4xs"],
   bd: Borders.Style.none,
@@ -84,7 +84,7 @@ export const button = {
   dp: Display.flex,
   placeContent: "center",
   active: {
-    bgColor: Colors.TransparentWhite[200],
+    bgColor: Colors.TransparentDark[800],
     fontW: Fonts.Weight.bold,
   },
   primary: {
@@ -116,7 +116,7 @@ export const button = {
   },
   textOnly: {
     bgColor: Colors.TransparentDark.transparent,
-    color: Colors.TransparentWhite[500],
+    color: Colors.TransparentDark[500],
     h: Sizing.Height.lg,
     w: Sizing.Width.fitContent,
     padding: Padding.Horizontal.sm,
@@ -125,6 +125,6 @@ export const button = {
     h: Sizing.Height.lg,
     w: Sizing.Width.fitContent,
     pd: Padding.Horizontal.lg,
-    bgColor: Colors.TransparentWhite[900],
+    bgColor: Colors.Grey[900],
   },
 };
