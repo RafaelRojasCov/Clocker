@@ -1,0 +1,20 @@
+$base-selector: ".input";
+
+#{$base-selector} {
+  display: flex;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 1em;
+  font-size: 1.5em;
+  font-family: "Varela Round";
+  font-weight: bold;
+  color: #555555;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+    font-style: italic;
+    letter-spacing: 0px;
+    font-size: 0.8em;
+  }
+}

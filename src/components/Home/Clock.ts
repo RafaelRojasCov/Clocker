@@ -56,6 +56,7 @@ export class Clock {
   timeComplete = () => {
     this.stop();
     this.alarmSound.play();
+    this.reset(this.defaultMinutes);
     console.log("Time is up!");
   };
 

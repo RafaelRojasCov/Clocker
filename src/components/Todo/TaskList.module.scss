@@ -1,0 +1,12 @@
+$base-selector: ".task-list";
+
+#{$base-selector} {
+}
+
+#{$base-selector}__ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  list-style: none;
+  width: 100%;
+}

@@ -7,9 +7,12 @@ $base-selector: ".button";
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 
   @include mobile {
     font-size: 4vw;
@@ -19,19 +22,20 @@ $base-selector: ".button";
 
 #{$base-selector}__basic {
   background-color: transparent;
+  font-weight: normal;
 
   &--active {
     background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
   }
 }
 
 #{$base-selector}__primary {
-  color: #fff;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 6px 0px;
   width: 200px;
   font-size: 22px;
   text-transform: uppercase;
-  font-weight: bold;
+  transition: transform 0.1s ease-in-out;
 
   &--active {
     box-shadow: none;
@@ -39,6 +43,35 @@ $base-selector: ".button";
   }
 }
 
+#{$base-selector}__dashed {
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 4em;
+  width: 100%;
+  gap: 0.5em;
+  opacity: 0.7;
+  border-radius: 0.5em;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 #{$base-selector}__icon {
   padding: 0;
+}
+
+#{$base-selector}__text-only {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  height: 40px;
+  width: fit-content;
+  padding: 0 1em;
+}
+
+#{$base-selector}__solid {
+  height: 40px;
+  width: fit-content;
+  padding: 0 2em;
+  background-color: #222222;
 }

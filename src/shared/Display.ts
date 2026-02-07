@@ -1,0 +1,17 @@
+export const Display = {
+  flex: "flex",
+  inlineFlex: "inline-flex",
+  block: "block",
+  inlineBlock: "inline-block",
+  grid: "grid",
+  inlineGrid: "inline-grid",
+  table: "table",
+  tableRow: "table-row",
+  tableCell: "table-cell",
+  none: "none",
+  initial: "initial",
+  inherit: "inherit",
+  revertLayer: "revert-layer",
+  revert: "revert",
+  unset: "unset",
+};
