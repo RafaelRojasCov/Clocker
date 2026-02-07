@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "homepage": "https://pomodoro.rafaelrojas.dev/Clocker",
+  "homepage": "https://pomodoro.rafaelrojas.dev",
   "dependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@emotion/react": "^11.11.1",
