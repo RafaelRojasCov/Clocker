@@ -30,9 +30,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --watchAll=false",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
@@ -42,6 +42,14 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@shared/(.*)$": "<rootDir>/src/shared/$1",
+      "^@components/(.*)$": "<rootDir>/src/components/$1",
+      "^@assets/(.*)$": "<rootDir>/src/assets/$1",
+      "^@types/(.*)$": "<rootDir>/src/types/$1"
+    }
   },
   "browserslist": {
     "production": [
@@ -57,7 +65,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@craco/craco": "^7.1.0",
     "@testing-library/dom": "^9.3.1",
+    "craco-alias": "^3.0.1",
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3"
