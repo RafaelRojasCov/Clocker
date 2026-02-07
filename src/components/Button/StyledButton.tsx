@@ -134,11 +134,10 @@ export interface CompoundButtonProps extends StyledButtonProps {
 export const CompoundButton = ({
   variant = "primary",
   ...rest
-}: CompoundButtonProps) =>
-  styled(variants[variant])<CompoundButtonProps>``({
-    variant,
-    ...rest,
-  });
+}: CompoundButtonProps) => {
+  const ButtonComponent = variants[variant];
+  return <ButtonComponent {...rest} />;
+};
 
 //no me acuerdo de que era este codigo
 //GDCR20-A9HRFNW9

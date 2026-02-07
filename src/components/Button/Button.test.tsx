@@ -26,12 +26,12 @@ describe("button", () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("should render basic variant as default", () => {
+  it("should render without variant class when no variant is provided", () => {
     render(<Button />);
     const button = screen.getByRole("button");
 
     expect(button).toHaveClass("button");
-    expect(button).toHaveClass("button__basic");
+    expect(button).not.toHaveClass("button__basic");
   });
 
   it("should render primary variant when prop is passed", () => {
@@ -42,12 +42,12 @@ describe("button", () => {
     expect(button).toHaveClass("button__primary");
   });
 
-  it("should render basic variant with active prop when prop is passed", () => {
+  it("should not render variant class with active when no variant is provided", () => {
     render(<Button active />);
     const button = screen.getByRole("button");
 
     expect(button).toHaveClass("button");
-    expect(button).toHaveClass("button__basic--active");
+    expect(button).not.toHaveClass("button__basic--active");
   });
 
   it("should render primary variant with active prop when prop is passed", () => {

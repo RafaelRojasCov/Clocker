@@ -1,40 +1,6 @@
-# 🍅 Clocker - Pomodoro Timer
-
-- Node.js +16
-- Typescript
-- React
-- Yarn
-
-## Development
-
-To run the project locally:
-
-```bash
-yarn install
-yarn start
-```
-
-To build for production:
-
-```bash
-yarn build
-```
-
-## Deployment
-
-This project automatically deploys to GitHub Pages on every push to the `main` branch using GitHub Actions.
-
-### GitHub Pages Configuration
-
-To enable automatic deployment, ensure the following settings in your GitHub repository:
-
-1. Go to **Settings** → **Pages**
-2. Under **Source**, select **GitHub Actions**
-3. The workflow will automatically deploy the site to `https://RafaelRojasCov.github.io/Clocker/`
-
-The deployment workflow is defined in `.github/workflows/deploy.yml`.
-
 <div align="center">
+
+# 🍅 Clocker - Pomodoro Timer
 
 ![Clocker App](https://github.com/user-attachments/assets/c1a237ab-3661-4f0e-a636-f2640da43fbb)
 
@@ -262,7 +228,21 @@ yarn deploy
 Este comando:
 1. Construye la aplicación para producción
 2. Despliega el contenido de la carpeta `build` a la rama `gh-pages`
-3. La aplicación estará disponible en: `https://rafaelrojascov.github.io/pomofocus-clone`
+3. La aplicación estará disponible en: `https://rafaelrojascov.github.io/Clocker`
+
+#### Despliegue Automático con GitHub Actions
+
+Este proyecto se despliega automáticamente a GitHub Pages en cada push a la rama `main` usando GitHub Actions.
+
+**Configuración de GitHub Pages:**
+
+Para habilitar el despliegue automático, asegúrate de tener la siguiente configuración en tu repositorio de GitHub:
+
+1. Ve a **Settings** → **Pages**
+2. En **Source**, selecciona **GitHub Actions**
+3. El workflow desplegará automáticamente el sitio a `https://RafaelRojasCov.github.io/Clocker/`
+
+El workflow de despliegue está definido en `.github/workflows/deploy.yml`.
 
 ### Desplegar en Otros Servicios
 
