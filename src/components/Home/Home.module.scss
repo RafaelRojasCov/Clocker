@@ -7,35 +7,41 @@ $base-selector: ".home";
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  height: 100vh;
+  gap: var(--spacing-xl); /* 32px */
+  min-height: 100vh;
   width: 100vw;
-  padding: 2em;
+  padding: var(--spacing-xxl); /* 40px */
   color: #fff;
+  transition: background-color 0.5s ease; /* Smooth transition for background changes */
 
   @include mobile {
-    padding: 1em;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
   }
 }
 
 #{$base-selector}__title {
-  font-size: 7vw;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 2.5rem; /* 40px */
   text-align: center;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 
   @include desktop-wide {
-    font-size: 3vw;
+    font-size: 2.2rem;
   }
 
   @include desktop {
-    font-size: 4vw;
+    font-size: 2rem;
   }
 
   @include tablet-wide {
-    font-size: 5vw;
+    font-size: 1.8rem;
   }
 
   @include tablet {
-    font-size: 6vw;
+    font-size: 1.5rem;
   }
 }
 
@@ -43,22 +49,26 @@ $base-selector: ".home";
   border: none;
   width: 100%;
   max-width: 600px;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 1px;
-  margin: 0 1em;
+  height: 6px; /* Slightly thicker for better visibility */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-sm); /* Rounded ends */
+  margin: var(--spacing-md) 0;
+  overflow: hidden; /* Ensure rounded corners clip the fill */
 
   &::-moz-progress-bar {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-sm);
   }
 
   // for chromium based browsers
   &::-webkit-progress-bar {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-sm);
   }
 
   &::-webkit-progress-value {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-sm);
+    transition: width 0.3s ease;
   }
 }
-

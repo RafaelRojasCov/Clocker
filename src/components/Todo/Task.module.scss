@@ -2,19 +2,38 @@ $base-selector: ".task";
 
 #{$base-selector} {
   width: 100%;
-  color: #555555;
+  color: #333;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-primary);
 }
 
 #{$base-selector}__header {
   display: flex;
-  place-content: center space-between;
+  align-items: center;
+  justify-content: space-between;
   flex-flow: row;
-  background-color: #fff;
-  gap: 0.5em;
+  background-color: rgba(255, 255, 255, 0.9);
+  gap: var(--spacing-sm);
   width: 100%;
-  border-radius: 5px;
-  border-left: 5px solid #000;
-  height: 60px;
+  border-radius: var(--radius-md);
+  border-left: 6px solid rgba(0, 0, 0, 0.1);
+  min-height: 64px;
   margin: 0;
-  padding: 0 1em;
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    background-color: #fff;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #444;
+  }
 }

@@ -3,75 +3,156 @@
 $base-selector: ".button";
 
 #{$base-selector} {
-  padding: 10px;
+  padding: var(--spacing-sm) var(--spacing-md);
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   color: #fff;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.15); /* Default background */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
   @include mobile {
     font-size: 4vw;
-    padding: 0.5em;
+    padding: var(--spacing-sm);
   }
-}
 
-#{$base-selector}__basic {
-  background-color: transparent;
-  font-weight: normal;
+  /* Boost specificity for variants to ensure they override the base .button styles */
 
-  &--active {
-    background-color: rgba(0, 0, 0, 0.2);
-    font-weight: bold;
-  }
-}
-
-#{$base-selector}__primary {
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 6px 0px;
-  width: 200px;
-  font-size: 22px;
-  text-transform: uppercase;
-  transition: transform 0.1s ease-in-out;
-
-  &--active {
+  /* Basic variant (for tabs) */
+  &#{$base-selector}__basic {
+    background-color: transparent;
+    font-weight: 500;
+    opacity: 0.8;
     box-shadow: none;
-    transform: translateY(6px);
-  }
-}
 
-#{$base-selector}__dashed {
-  border: 2px dashed rgba(255, 255, 255, 0.4);
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 4em;
-  width: 100%;
-  gap: 0.5em;
-  opacity: 0.7;
-  border-radius: 0.5em;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      opacity: 1;
+      transform: none;
+    }
 
-  &:hover {
-    opacity: 1;
+    /* We need to target the active class combined with basic */
+    /* Since we are inside & (which is .button.button__basic), we are good */
+    /* But the active class is separate. */
   }
+
+  /* Active state for basic */
+  /* We use the full selector to ensure specificity */
+  &#{$base-selector}__basic--active {
+      background-color: rgba(0, 0, 0, 0.15);
+      font-weight: 700;
+      opacity: 1;
+      transform: none;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+
+      &:hover {
+         background-color: rgba(0, 0, 0, 0.15); /* Keep it same or slightly darker */
+      }
+  }
+
+  /* Primary variant */
+  &#{$base-selector}__primary {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    box-shadow: var(--shadow-soft);
+    width: 200px;
+    height: 64px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 32px;
+
+    &:hover {
+      background-color: #ffffff;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    &:active {
+      box-shadow: var(--shadow-soft);
+      transform: translateY(2px);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &#{$base-selector}__primary--active {
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      transform: translateY(2px);
+
+      &:hover {
+          transform: translateY(2px);
+      }
+  }
+
+  /* Dashed variant */
+  &#{$base-selector}__dashed {
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.05);
+    height: 4em;
+    width: 100%;
+    gap: var(--spacing-sm);
+    opacity: 0.8;
+    border-radius: var(--radius-md);
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: none;
+    }
+  }
+
+  /* Icon buttons (like Task arrow) */
+  /* If we used variant="basic" on them, they are handled above. */
+  /* If they have no variant but just icon, they get base style (which is fine, or we can override) */
 }
 
 #{$base-selector}__icon {
   padding: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 
 #{$base-selector}__text-only {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
   height: 40px;
   width: fit-content;
-  padding: 0 1em;
+  padding: 0 var(--spacing-md);
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: transparent;
+    transform: none;
+  }
 }
 
 #{$base-selector}__solid {
   height: 40px;
   width: fit-content;
   padding: 0 2em;
-  background-color: #222222;
+  background-color: #333;
+  color: #fff;
+
+  &:hover {
+      background-color: #000;
+  }
 }

@@ -39,7 +39,7 @@ export const Task: React.FC<TaskProps> = ({
           <span>
             {completedPomodoros}/{estimatedPomodoros}
           </span>
-          <Button startIcon={faCaretSquareDown} iconSize="xl" />
+          <Button startIcon={faCaretSquareDown} iconSize="xl" variant="basic" />
         </Box>
       </Box>
 

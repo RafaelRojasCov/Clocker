@@ -34,6 +34,7 @@ export const TimerSelector: React.FC<TimerSelectorProps> = ({
           key={timer.name}
           active={currentTimer === timer}
           onClick={onClick(timer)}
+          variant="basic"
         >
           {timer.name}
         </Button>

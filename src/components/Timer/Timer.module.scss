@@ -4,26 +4,32 @@ $base-selector: ".timer";
 
 #{$base-selector} {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Arial Rounded Bold", sans-serif;
-  font-size: 7vw;
-  font-weight: 900;
+  font-family: var(--font-primary);
+  font-weight: 900; /* Extra Bold */
+  letter-spacing: -0.02em; /* Tighter tracking */
+  line-height: 1.1;
+  color: #fff;
+
+  /* Responsive sizing */
+  font-size: 12rem; /* Large base size */
+  margin: var(--spacing-xl) 0;
 
   @include desktop {
-    font-size: 8vw;
+    font-size: 10rem;
   }
 
   @include tablet-wide {
-    font-size: 10vw;
+    font-size: 8rem;
   }
 
   @include tablet {
-    font-size: 15vw;
+    font-size: 20vw;
   }
 
   @include mobile {
-    font-size: 20vw;
+    font-size: 25vw;
+    margin: var(--spacing-md) 0;
   }
 }

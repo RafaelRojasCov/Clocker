@@ -4,42 +4,33 @@ $base-selector: ".timer-actions";
 
 #{$base-selector} {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  justify-content: center;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 10px;
-
-  @include mobile {
-    gap: 5px;
-  }
+  width: 100%;
+  margin-top: var(--spacing-lg);
 
   > button:first-child {
-    grid-column: 2/3;
+    grid-column: 2 / 3;
+    /* Ensure it doesn't shrink */
+    min-width: 200px;
 
     @include mobile {
-      width: 50vw;
-      font-size: 5vw;
+       min-width: 150px;
+       font-size: 1.2rem;
+       height: 56px;
     }
   }
 }
 
 #{$base-selector}__button-reset {
-  transform: translateY(6px);
-  font-size: 1vw;
+  grid-column: 3 / 4;
+  justify-self: start;
+  margin-left: var(--spacing-md);
 
-  @include desktop {
-    font-size: 1.2vw;
-  }
-
-  @include tablet-wide {
-    font-size: 1.5vw;
-  }
-
-  @include tablet {
-    font-size: 2.5vw;
-  }
+  /* Reset transform */
+  transform: none;
 
   @include mobile {
-    font-size: 3.5vw;
+    margin-left: var(--spacing-sm);
   }
 }

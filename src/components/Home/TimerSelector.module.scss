@@ -4,14 +4,17 @@ $base-selector: ".timer-selector";
 
 #{$base-selector} {
   display: flex;
-  justify-content: space-between;
-  gap: 0.7em;
-
-  @include tablet {
-    gap: 0.5em;
-  }
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: var(--spacing-xs);
+  border-radius: 100px; /* Pill shape */
+  width: fit-content;
+  margin: 0 auto;
 
   @include mobile {
-    gap: 0.3em;
+    gap: var(--spacing-xs);
+    width: 100%;
+    border-radius: var(--radius-lg);
   }
 }
