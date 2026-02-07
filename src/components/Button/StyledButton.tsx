@@ -7,7 +7,7 @@ import {
   Borders,
   Fonts,
   Spacing,
-} from "@shared/index";
+} from "../../shared";
 import { ThemeButtonProps } from "./Button.theme";
 
 export interface StyledButtonProps
