@@ -1,5 +1,3 @@
-# Clocker (Pomofocus Clone)
-
 # 🍅 Clocker - Pomodoro Timer
 
 - Node.js +16
