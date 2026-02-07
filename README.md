@@ -315,4 +315,3 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 Hecho con ❤️ por [Rafael Rojas](https://github.com/RafaelRojasCov)
 
 </div>
->>>>>>> main
