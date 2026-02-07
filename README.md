@@ -133,7 +133,7 @@ La aplicación se abrirá automáticamente en [http://localhost:3000](http://loc
 
 ### Usando la Aplicación
 
-1. **Selecciona un Modo**: Haz clic en uno de los tres botones (Pomodoro, ShortBreak, LongBreak)
+1. **Selecciona un Modo**: Haz clic en uno de los tres botones (Pomodoro, Short Break, Long Break)
 2. **Inicia el Timer**: Presiona el botón "START" para comenzar el temporizador
 3. **Gestiona el Timer**: Usa los controles para pausar o reiniciar según necesites
 4. **Recibe Notificaciones**: Escucha la alerta cuando el tiempo termine
@@ -228,7 +228,7 @@ yarn deploy
 Este comando:
 1. Construye la aplicación para producción
 2. Despliega el contenido de la carpeta `build` a la rama `gh-pages`
-3. La aplicación estará disponible en: `https://[tu-usuario].github.io/Clocker`
+3. La aplicación estará disponible en: `https://rafaelrojascov.github.io/pomofocus-clone`
 
 ### Desplegar en Otros Servicios
 
