@@ -13,8 +13,8 @@ export const TaskList: React.FC<TaskListProps> = ({ taskList = [] }) => {
       {!!taskList.length && (
         <Box className={classNames(styles["task-list"])}>
           <ul className={styles["task-list__ul"]}>
-            {taskList.map((task, i) => (
-              <Task key={i} component="li" title={task} />
+            {taskList.map((task) => (
+              <Task key={task} component="li" title={task} />
             ))}
           </ul>
         </Box>

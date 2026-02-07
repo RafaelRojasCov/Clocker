@@ -7,7 +7,6 @@ export interface InputProps extends ComponentPropsWithoutRef<"input"> {
   type?: HTMLInputElement["type"];
   className?: HTMLInputElement["className"];
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  [x: string]: any;
 }
 
 /**
