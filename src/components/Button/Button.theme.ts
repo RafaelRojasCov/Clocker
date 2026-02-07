@@ -8,7 +8,7 @@ import {
   Spacing,
   Opacity,
   Display,
-} from "../../shared";
+} from "@shared/index";
 
 export interface ThemePrimaryButtonProps {
   bShadow?: React.CSSProperties["boxShadow"];
