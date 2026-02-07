@@ -18,7 +18,6 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./src/*"],
-      "@shared": ["shared"],
       "@shared/*": ["shared/*"],
       "@components/*": ["components/*"],
       "@assets/*": ["assets/*"],
