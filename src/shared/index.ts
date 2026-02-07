@@ -1,6 +1,6 @@
 import { cleanProps } from "./utils";
 import { breakpoints, device } from "./breakpoints";
-import { Colors } from "./Colors";
+import { Colors } from "./colors";
 import { Borders } from "./Borders";
 import { Fonts } from "./Fonts";
 import { Opacity } from "./Opacity";
