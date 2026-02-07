@@ -27,6 +27,11 @@ $base-selector: ".button";
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  &:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+  }
+
   @include mobile {
     font-size: 4vw;
     padding: var(--spacing-sm);
@@ -36,14 +41,13 @@ $base-selector: ".button";
 
   /* Basic variant (for tabs) */
   &#{$base-selector}__basic {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.15);
     font-weight: 500;
-    opacity: 0.8;
-    box-shadow: none;
+    opacity: 0.7;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+      opacity: 0.9;
       transform: none;
     }
 
@@ -55,39 +59,34 @@ $base-selector: ".button";
   /* Active state for basic */
   /* We use the full selector to ensure specificity */
   &#{$base-selector}__basic--active {
-      background-color: rgba(0, 0, 0, 0.15);
-      font-weight: 700;
+      background-color: rgba(0, 0, 0, 0.3);
+      font-weight: 600;
       opacity: 1;
       transform: none;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 
       &:hover {
-         background-color: rgba(0, 0, 0, 0.15); /* Keep it same or slightly darker */
+         background-color: rgba(0, 0, 0, 0.3); /* Keep it same or slightly darker */
       }
   }
 
   /* Primary variant */
   &#{$base-selector}__primary {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #333;
-    box-shadow: var(--shadow-soft);
-    width: 200px;
-    height: 64px;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 32px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: 600;
+    width: 160px;
+    height: 50px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
 
     &:hover {
-      background-color: #ffffff;
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-4px);
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
     }
 
     &:active {
-      box-shadow: var(--shadow-soft);
-      transform: translateY(2px);
-      background-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(0px);
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
 
@@ -119,15 +118,22 @@ $base-selector: ".button";
     }
   }
 
-  /* Icon buttons (like Task arrow) */
-  /* If we used variant="basic" on them, they are handled above. */
-  /* If they have no variant but just icon, they get base style (which is fine, or we can override) */
+  /* Icon buttons */
 }
 
-#{$base-selector}__icon {
+#{$base-selector}__icon--start {
+  margin-right: var(--spacing-xs);
+}
+
+#{$base-selector}__icon--end {
+  margin-left: var(--spacing-xs);
+}
+
+/* Icon-only button (no text children) */
+#{$base-selector}__icon-only {
   padding: 0;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 

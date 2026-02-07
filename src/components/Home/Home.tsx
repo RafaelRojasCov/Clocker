@@ -56,7 +56,7 @@ const Home: React.FC = () => {
         value={currentTimeProgress}
       />
 
-      <Container maxW={"500px"} pd="var(--spacing-xl) var(--spacing-md)" bgColor="rgba(255,255,255,0.1)">
+      <Container maxW={"500px"} pd="var(--spacing-md)" bgColor="transparent">
         <TimerSelector
           timers={[pomodoro, shortBreak, longBreak]}
           handleReset={handleReset}

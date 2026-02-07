@@ -13,23 +13,23 @@ $base-selector: ".timer";
   color: #fff;
 
   /* Responsive sizing */
-  font-size: 12rem; /* Large base size */
-  margin: var(--spacing-xl) 0;
+  font-size: 6rem; /* More reasonable base size */
+  margin: var(--spacing-md) 0;
 
   @include desktop {
-    font-size: 10rem;
+    font-size: 6rem;
   }
 
   @include tablet-wide {
-    font-size: 8rem;
+    font-size: 5rem;
   }
 
   @include tablet {
-    font-size: 20vw;
+    font-size: 4rem;
   }
 
   @include mobile {
-    font-size: 25vw;
-    margin: var(--spacing-md) 0;
+    font-size: 4rem;
+    margin: var(--spacing-sm) 0;
   }
 }

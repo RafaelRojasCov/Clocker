@@ -54,6 +54,8 @@ export const Button: React.FC<ButtonProps> = ({
     placeContent,
   });
 
+  const isIconOnly = (startIcon || endIcon) && !children;
+
   return (
     <CompoundButton
       {...styledProps}
@@ -64,9 +66,9 @@ export const Button: React.FC<ButtonProps> = ({
         {
           [styles[`button__${variant}`]]: variant,
           [styles[`button__${variant}--active`]]: variant && active,
-          [styles[`button__icon`]]: endIcon || startIcon,
-          [styles[`button__icon--start`]]: startIcon,
-          [styles[`button__icon--end`]]: endIcon,
+          [styles[`button__icon-only`]]: isIconOnly,
+          [styles[`button__icon--start`]]: startIcon && children,
+          [styles[`button__icon--end`]]: endIcon && children,
         },
         className
       )}

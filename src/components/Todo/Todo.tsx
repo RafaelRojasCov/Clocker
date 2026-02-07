@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import { TaskForm } from "./TaskForm";
 import { TaskList } from "./TaskList";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Todo.module.scss";
 
 export const Todo = () => {
   const [formVisible, setFormVisible] = useState<boolean>(false);
@@ -29,7 +30,7 @@ export const Todo = () => {
 
   return (
     <Container maxW="500px" flexFlow="column" gap="var(--spacing-md)">
-      <h2 style={{ opacity: 0.6, fontSize: "1.2rem", textAlign: "center", width: "100%" }}>
+      <h2 className={styles.todo__heading}>
         Time to focus!
       </h2>
       <Button
