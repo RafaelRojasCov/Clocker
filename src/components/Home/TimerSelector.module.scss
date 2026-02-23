@@ -5,6 +5,7 @@ $base-selector: ".timer-selector";
 #{$base-selector} {
   display: flex;
   justify-content: center;
+  width: 100%;
   gap: 0.7em;
 
   @include tablet {

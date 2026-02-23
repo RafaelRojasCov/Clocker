@@ -33,7 +33,8 @@ $base-selector: ".button";
 #{$base-selector}__basic {
   background-color: transparent;
   font-weight: normal;
-  width: fit-content;
+  flex: 1;
+  min-width: 0;
   padding: 0.4em 0.9em;
   font-size: 0.95rem;
   border-radius: 5px;
@@ -41,7 +42,6 @@ $base-selector: ".button";
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
     opacity: 1;
   }
 
