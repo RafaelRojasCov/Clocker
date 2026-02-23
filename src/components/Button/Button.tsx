@@ -31,7 +31,7 @@ export interface ButtonProps extends StyledButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
-  variant,
+  variant = "primary",
   active,
   startIcon,
   endIcon,
@@ -58,6 +58,7 @@ export const Button: React.FC<ButtonProps> = ({
     <CompoundButton
       {...styledProps}
       {...rest}
+      variant={variant as any}
       onClick={onClick}
       className={classNames(
         styles.button,
@@ -68,7 +69,7 @@ export const Button: React.FC<ButtonProps> = ({
           [styles[`button__icon--start`]]: startIcon,
           [styles[`button__icon--end`]]: endIcon,
         },
-        className
+        className,
       )}
     >
       {startIcon && <FontAwesomeIcon icon={startIcon} size={iconSize} />}

@@ -6,7 +6,7 @@ import styles from "./TimerActions.module.scss";
 
 export type OnClickProps = (
   timer: Clock,
-  options?: { forceReset?: boolean }
+  options?: { forceReset?: boolean },
 ) => () => void;
 
 export interface TimerActionsProps {
@@ -39,13 +39,12 @@ export const TimerActions: React.FC<TimerActionsProps> = ({
         {isRunning ? "Pause" : "Start"}
       </Button>
       {isRunning && (
-        <>
-          <Button
-            className={styles["timer-actions__button-reset"]}
-            startIcon={faRotateLeft}
-            onClick={onClick(currentTimer, { forceReset: true })}
-          />
-        </>
+        <Button
+          className={styles["timer-actions__button-reset"]}
+          startIcon={faRotateLeft}
+          onClick={onClick(currentTimer, { forceReset: true })}
+          iconSize="3x"
+        />
       )}
     </div>
   );

@@ -10,11 +10,10 @@ import {
 } from "@shared/index";
 import { ThemeButtonProps } from "./Button.theme";
 
-export interface StyledButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
+export interface StyledButtonProps extends React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> {
   color?: React.CSSProperties["color"];
   mg?: React.CSSProperties["margin"];
   pd?: React.CSSProperties["padding"];
@@ -116,7 +115,9 @@ export interface IVariants {
   dashed: typeof DashedButton;
   icon: typeof IconButton;
   textOnly: typeof TextOnlyButton;
+  "text-only": typeof TextOnlyButton;
   solid: typeof SolidButton;
+  basic: typeof StyledButton;
 }
 
 export const variants: IVariants = {
@@ -124,7 +125,9 @@ export const variants: IVariants = {
   dashed: DashedButton,
   icon: IconButton,
   textOnly: TextOnlyButton,
+  "text-only": TextOnlyButton,
   solid: SolidButton,
+  basic: StyledButton,
 };
 
 export interface CompoundButtonProps extends StyledButtonProps {
@@ -138,6 +141,3 @@ export const CompoundButton = ({
   const ButtonComponent = variants[variant];
   return <ButtonComponent {...rest} />;
 };
-
-//no me acuerdo de que era este codigo
-//GDCR20-A9HRFNW9
