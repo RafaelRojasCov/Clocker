@@ -1,7 +1,7 @@
 import { DispatchWithoutAction } from "react";
 import alarm from "../../assets/sounds/alarm.wav";
 
-type TimerName = "Pomodoro" | "ShortBreak" | "LongBreak";
+type TimerName = "Pomodoro" | "Short Break" | "Long Break";
 
 export class Clock {
   name: TimerName = "Pomodoro";
@@ -82,13 +82,13 @@ export const pomodoro = new Clock({
 });
 
 export const shortBreak = new Clock({
-  name: "ShortBreak",
+  name: "Short Break",
   minutes: 5,
   backgroundColor: "#4D8389",
 });
 
 export const longBreak = new Clock({
-  name: "LongBreak",
+  name: "Long Break",
   minutes: 15,
   backgroundColor: "#476F94",
 });

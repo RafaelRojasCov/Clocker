@@ -19,24 +19,10 @@ $base-selector: ".home";
 }
 
 #{$base-selector}__title {
-  font-size: 7vw;
+  font-size: clamp(1.5rem, 7vw, 4rem);
   text-align: center;
-
-  @include desktop-wide {
-    font-size: 3vw;
-  }
-
-  @include desktop {
-    font-size: 4vw;
-  }
-
-  @include tablet-wide {
-    font-size: 5vw;
-  }
-
-  @include tablet {
-    font-size: 6vw;
-  }
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 #{$base-selector}__progress-bar {

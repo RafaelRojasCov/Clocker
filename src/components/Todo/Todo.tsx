@@ -29,7 +29,7 @@ export const Todo = () => {
 
   return (
     <Container maxW="500px" flexFlow="column" gap="1em">
-      Time to focus!
+      <p>Time to focus!</p>
       <Button
         startIcon={faPlusCircle}
         iconSize="xl"

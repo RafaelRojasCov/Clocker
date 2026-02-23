@@ -13,7 +13,12 @@ $base-selector: ".button";
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  transition: opacity 0.15s ease-in-out, transform 0.1s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
 
   &:hover {
     opacity: 0.85;
@@ -31,14 +36,15 @@ $base-selector: ".button";
 }
 
 #{$base-selector}__basic {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1);
   font-weight: normal;
   flex: 1;
   min-width: 0;
-  padding: 0.4em 0.9em;
+  padding: 0.5em 1.2em;
+  min-height: 44px;
   font-size: 0.95rem;
   border-radius: 5px;
-  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -56,7 +62,7 @@ $base-selector: ".button";
   width: 200px;
   font-size: 22px;
   text-transform: uppercase;
-  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
   &--active {
     box-shadow: none;
