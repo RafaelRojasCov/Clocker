@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer, useState, useEffect, useRef } from "react";
 import { Container } from "../Layout";
 import { Timer } from "../Timer";
 import { pomodoro, shortBreak, longBreak, Clock } from "./Clock";
@@ -17,7 +17,7 @@ import { TimerActions } from "./TimerActions";
 const Home: React.FC = () => {
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const [currentTimer, setCurrentTimer] = useState<Clock>(pomodoro);
-  const clickSound = new Audio(mouseClick);
+  const clickSound = useRef(new Audio(mouseClick));
   const {
     start,
     stop,
@@ -38,7 +38,8 @@ const Home: React.FC = () => {
   };
 
   const handleStartStop = () => {
-    clickSound.play();
+    clickSound.current.currentTime = 0;
+    clickSound.current.play();
     isRunning ? stop() : start();
   };
 

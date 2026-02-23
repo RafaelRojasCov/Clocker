@@ -32,6 +32,7 @@ export const TimerSelector: React.FC<TimerSelectorProps> = ({
       {timers.map((timer: Clock) => (
         <Button
           key={timer.name}
+          variant="basic"
           active={currentTimer === timer}
           onClick={onClick(timer)}
         >
