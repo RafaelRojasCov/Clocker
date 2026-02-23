@@ -10,6 +10,7 @@ $base-selector: ".timer";
   font-family: "Arial Rounded Bold", sans-serif;
   font-size: 7vw;
   font-weight: 900;
+  min-height: 1.2em;
 
   @include desktop {
     font-size: 8vw;
